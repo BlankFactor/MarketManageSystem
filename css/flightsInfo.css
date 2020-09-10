@@ -1,0 +1,45 @@
+#mainDiv{
+    margin: 0 auto;
+    padding: 10px;
+    width: 800px;
+    height: 500px;
+    background: rgba(209, 223, 255, 0.726);
+    text-align: center;
+}
+
+#headline{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 40px;
+    background-color: rgba(209, 223, 255, 0.726);
+    width: 300px;
+    margin-bottom: 5px;
+    border-color: white;
+}
+
+#table{
+    color: rgb(41, 62, 158);
+    border-color: rgb(35, 36, 117);
+    margin: 0 auto;
+    text-align: center;
+    width:800px;
+}
+
+#settingDiv{
+    margin:0 auto;
+    height: 170px;
+    background:rgb(209, 223, 255, 0.726);
+    text-align: left;
+    width: 90%;
+    text-align: center;
+}   
+
+#query{
+    width: 100px;
+    color: rgb(41, 62, 158);
+}
+
+
+.text{
+    color: rgb(41, 62, 158);
+}

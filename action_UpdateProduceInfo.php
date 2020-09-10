@@ -1,0 +1,35 @@
+<?php
+    $con = mysqli_connect('localhost','root','root','marketmanagersystem');
+        
+    if(!$con)
+        die('could not connect : '.mysqli_error($con));
+
+    mysqli_set_charset($con,'utf8');
+
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $total = $_POST['total'];
+    $rewardrate = $_POST['rewardrate'];
+
+    $sql = "UPDATE produce set";
+    $sql .= " name='".$name."'";
+    $sql .= ",price='".$price."'";
+    $sql .= ",rewardrate='".$rewardrate."' where id=".$id;
+
+
+    mysqli_query($con,$sql) or die('删除数据出错：'.mysqli_error($con)); 
+
+    echo <<<EOT
+    <form name='fr' action='admin.php' method='POST'>
+    <input type='hidden' name='adminName' value='admin'>
+    <input type='hidden' name='password' value='admin'>
+    <input type='hidden' name='action' value='ProduceInfo'>
+    </form>
+    <script type='text/javascript'>
+    document.fr.submit();
+    </script>
+    EOT;
+
+    mysqli_close($con);
+?>

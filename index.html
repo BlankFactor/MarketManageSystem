@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<head> 
+<meta charset="utf-8"> 
+<title>销售管理系统</title>
+
+<link href="/css/index.css" rel="stylesheet" type="text/css"/>
+<script src="js/mainDialog.js" type="text/javascript"></script>
+
+<script>
+function showSite(str)
+{
+    if (str=="")
+    {
+        document.getElementById("txtHint").innerHTML="无输入"
+        return;
+    } 
+    if (window.XMLHttpRequest)
+    {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp=new XMLHttpRequest();
+    }   
+    else
+    {   
+        // IE6, IE5 浏览器执行代码
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET","mysql.php?q="+str,true);
+    xmlhttp.send();
+}
+</script>
+
+</head>
+<body style="background-color:rgb(141, 169, 243);">
+    <div id="mainDiv" >
+        <h3 id="headline"><font class="text" >销售管理系统</font></h3>
+        
+        <form action="admin.php" method="post" onsubmit="return Login(adminName.value,password.value)">
+        <div id="inputfield">
+            <label><div class="leftbar"><font class="text" > 账号 : </font><input type="text" name="adminName" value=""/></div></label>    
+            <label><div class="leftbar"><font class="text" > 密码 : </font><input type="password" name="password" value=""></div></label>    
+        </div>
+
+        <div id="buttonfield">
+            <p><input type="submit" name="log" value="管理员登录" class="button"/></p>
+            <p><input type="button" name="browse" value="业绩录入" class="button" onclick="Browse()"></p>
+        </div>
+        </form>
+</body>
+</html>
